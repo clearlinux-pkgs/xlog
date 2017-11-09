@@ -1,3 +1,20 @@
+- Changes for xlog version 2.0.15 - 2017-nov-08
+  * Clean up warnings reported by user from a macOS build
+  * Updated cty.dat to 20171030
+  * 60m is now consistently referred to as "5" (not 5.2 or 5.3)
+  * Upgraded to ADIF version 3.0.6
+  * Cleaned up Glib Critical and Glib Warnings (that I could create)
+  * Added all modes and submodes
+  * ADIF3 output is now supported, ADIF2 output has been removed
+  * ADIF Import has been updated
+  * added adif_ok to xlog.cfg to indicate ADIF3 update of bands, modes, and scoringbands has occurred
+  * Users will see new defaults restored if they have customized via:
+      Settings->Dialogs->Scoring
+      Settings->Preferences->General comma separated list of modes
+      Settings->Preferences->General comma separated list of bands
+  * Fixed bands in scoring window
+  * Added feature: sort log by callsign
+
 - Changes for xlog version 2.0.14 - 2016-dec-11
   * Updated cty.dat to 20161124 (cty-2614)
   * Fixed compiler error with new gcc, in adif.c, with unused variable
