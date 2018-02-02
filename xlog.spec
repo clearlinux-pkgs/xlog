@@ -6,7 +6,7 @@
 #
 Name     : xlog
 Version  : 2.0.15
-Release  : 2
+Release  : 3
 URL      : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.15.tar.gz
 Source0  : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.15.tar.gz
 Source99 : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.15.tar.gz.sig
