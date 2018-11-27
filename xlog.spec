@@ -6,18 +6,18 @@
 #
 Name     : xlog
 Version  : 2.0.15
-Release  : 5
+Release  : 6
 URL      : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.15.tar.gz
 Source0  : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.15.tar.gz
 Source99 : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.15.tar.gz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-3.0
-Requires: xlog-bin
-Requires: xlog-data
-Requires: xlog-license
-Requires: xlog-locales
-Requires: xlog-man
+Requires: xlog-bin = %{version}-%{release}
+Requires: xlog-data = %{version}-%{release}
+Requires: xlog-license = %{version}-%{release}
+Requires: xlog-locales = %{version}-%{release}
+Requires: xlog-man = %{version}-%{release}
 BuildRequires : desktop-file-utils
 BuildRequires : gettext
 BuildRequires : perl(XML::Parser)
@@ -35,9 +35,9 @@ yourself.
 %package bin
 Summary: bin components for the xlog package.
 Group: Binaries
-Requires: xlog-data
-Requires: xlog-license
-Requires: xlog-man
+Requires: xlog-data = %{version}-%{release}
+Requires: xlog-license = %{version}-%{release}
+Requires: xlog-man = %{version}-%{release}
 
 %description bin
 bin components for the xlog package.
@@ -54,7 +54,7 @@ data components for the xlog package.
 %package doc
 Summary: doc components for the xlog package.
 Group: Documentation
-Requires: xlog-man
+Requires: xlog-man = %{version}-%{release}
 
 %description doc
 doc components for the xlog package.
@@ -92,7 +92,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1530659540
+export SOURCE_DATE_EPOCH=1543350011
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -104,12 +104,12 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1530659540
+export SOURCE_DATE_EPOCH=1543350011
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/xlog
-cp COPYING %{buildroot}/usr/share/doc/xlog/COPYING
-cp data/doc/manual/license.dox %{buildroot}/usr/share/doc/xlog/data_doc_manual_license.dox
-cp data/doc/manual/output/html/license.html %{buildroot}/usr/share/doc/xlog/data_doc_manual_output_html_license.html
+mkdir -p %{buildroot}/usr/share/package-licenses/xlog
+cp COPYING %{buildroot}/usr/share/package-licenses/xlog/COPYING
+cp data/doc/manual/license.dox %{buildroot}/usr/share/package-licenses/xlog/data_doc_manual_license.dox
+cp data/doc/manual/output/html/license.html %{buildroot}/usr/share/package-licenses/xlog/data_doc_manual_output_html_license.html
 %make_install
 %find_lang xlog
 
@@ -126,7 +126,7 @@ cp data/doc/manual/output/html/license.html %{buildroot}/usr/share/doc/xlog/data
 /usr/share/applications/xlog.desktop
 /usr/share/icons/gnome-mime-text-x-xlog.png
 /usr/share/icons/xlog-icon.png
-/usr/share/mime/packages/xlog.xml
+/usr/share/mime-packages/xlog.xml
 /usr/share/pixmaps/xlog/countrymap.png
 /usr/share/pixmaps/xlog/cwdaemon.png
 /usr/share/pixmaps/xlog/gnome-mime-text-x-xlog.png
@@ -500,15 +500,13 @@ cp data/doc/manual/output/html/license.html %{buildroot}/usr/share/doc/xlog/data
 %doc /usr/share/doc/xlog/*
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/xlog/COPYING
-/usr/share/doc/xlog/data_doc_manual_license.dox
-/usr/share/doc/xlog/data_doc_manual_output_html_license.html
-/usr/share/doc/xlog/manual/license.dox
-/usr/share/doc/xlog/manual/output/html/license.html
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/xlog/COPYING
+/usr/share/package-licenses/xlog/data_doc_manual_license.dox
+/usr/share/package-licenses/xlog/data_doc_manual_output_html_license.html
 
 %files man
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 /usr/share/man/man1/xlog.1
 
 %files locales -f xlog.lang
