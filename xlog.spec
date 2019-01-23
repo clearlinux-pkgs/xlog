@@ -5,12 +5,12 @@
 # Source0 file verified with key 0x1903030B4FDDF9A0 (andystewart@comcast.net)
 #
 Name     : xlog
-Version  : 2.0.15
-Release  : 6
-URL      : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.15.tar.gz
-Source0  : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.15.tar.gz
-Source99 : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.15.tar.gz.sig
-Summary  : No detailed summary available
+Version  : 2.0.17
+Release  : 7
+URL      : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.17.tar.gz
+Source0  : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.17.tar.gz
+Source99 : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.17.tar.gz.sig
+Summary  : Ham Radio general purpose logging program.
 Group    : Development/Tools
 License  : GPL-3.0
 Requires: xlog-bin = %{version}-%{release}
@@ -27,10 +27,11 @@ BuildRequires : pkgconfig(hamlib)
 BuildRequires : shared-mime-info
 
 %description
-- REQUIREMENTS -
-----------------
-See the INSTALL file for package requirements when you want to compile xlog
-yourself.
+Xlog handles 3 schemes of sharing information between applications.
+1) You can send information from xlog to an application by using shared
+memory. When a callsign is entered into the callsign field of the QSO
+frame, this callsign will be placed into shared memory, so a second
+application can grab it.
 
 %package bin
 Summary: bin components for the xlog package.
@@ -85,14 +86,14 @@ man components for the xlog package.
 
 
 %prep
-%setup -q -n xlog-2.0.15
+%setup -q -n xlog-2.0.17
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1543350011
+export SOURCE_DATE_EPOCH=1548256550
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -104,7 +105,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1543350011
+export SOURCE_DATE_EPOCH=1548256550
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xlog
 cp COPYING %{buildroot}/usr/share/package-licenses/xlog/COPYING

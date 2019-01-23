@@ -1,3 +1,12 @@
+- Changes for xlog version 2.0.17 - 2019-jan-14
+  * Suppress GCC warning "stringop-truncation" in editest.c
+    which occurs with GCC >= 8.1.
+  * Updated cty.dat 20190114
+  
+- Changes for xlog version 2.0.16 - 2019-jan-13
+  * added JS8 support and updated to ADIF 3.0.9
+  * Updated cty.dat 20181210
+
 - Changes for xlog version 2.0.15 - 2017-nov-08
   * Clean up warnings reported by user from a macOS build
   * Updated cty.dat to 20171030
