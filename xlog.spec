@@ -6,11 +6,11 @@
 #
 Name     : xlog
 Version  : 2.0.17
-Release  : 7
+Release  : 8
 URL      : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.17.tar.gz
 Source0  : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.17.tar.gz
-Source99 : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.17.tar.gz.sig
-Summary  : Ham Radio general purpose logging program.
+Source1 : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.17.tar.gz.sig
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-3.0
 Requires: xlog-bin = %{version}-%{release}
@@ -27,18 +27,16 @@ BuildRequires : pkgconfig(hamlib)
 BuildRequires : shared-mime-info
 
 %description
-Xlog handles 3 schemes of sharing information between applications.
-1) You can send information from xlog to an application by using shared
-memory. When a callsign is entered into the callsign field of the QSO
-frame, this callsign will be placed into shared memory, so a second
-application can grab it.
+- REQUIREMENTS -
+----------------
+See the INSTALL file for package requirements when you want to compile xlog
+yourself.
 
 %package bin
 Summary: bin components for the xlog package.
 Group: Binaries
 Requires: xlog-data = %{version}-%{release}
 Requires: xlog-license = %{version}-%{release}
-Requires: xlog-man = %{version}-%{release}
 
 %description bin
 bin components for the xlog package.
@@ -92,20 +90,25 @@ man components for the xlog package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1548256550
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1568142586
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 %configure --disable-static
 make  %{?_smp_mflags}
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1548256550
+export SOURCE_DATE_EPOCH=1568142586
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xlog
 cp COPYING %{buildroot}/usr/share/package-licenses/xlog/COPYING
@@ -113,6 +116,8 @@ cp data/doc/manual/license.dox %{buildroot}/usr/share/package-licenses/xlog/data
 cp data/doc/manual/output/html/license.html %{buildroot}/usr/share/package-licenses/xlog/data_doc_manual_output_html_license.html
 %make_install
 %find_lang xlog
+## Remove excluded files
+rm -f %{buildroot}/usr/share/applications/mimeinfo.cache
 
 %files
 %defattr(-,root,root,-)
@@ -123,7 +128,6 @@ cp data/doc/manual/output/html/license.html %{buildroot}/usr/share/package-licen
 
 %files data
 %defattr(-,root,root,-)
-%exclude /usr/share/applications/mimeinfo.cache
 /usr/share/applications/xlog.desktop
 /usr/share/icons/gnome-mime-text-x-xlog.png
 /usr/share/icons/xlog-icon.png
