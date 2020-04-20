@@ -1,3 +1,11 @@
+
+- Changes for xlog version 2.0.19 - 2020-apr-19
+  * Updated cty.dat 20200418 (cty-3007)
+
+- Changes for xlog version 2.0.18 - 2019-jun-11
+  * added FT4 support and updated to ADIF 3.1.0
+  * Updated cty.dat 20190608
+  
 - Changes for xlog version 2.0.17 - 2019-jan-14
   * Suppress GCC warning "stringop-truncation" in editest.c
     which occurs with GCC >= 8.1.

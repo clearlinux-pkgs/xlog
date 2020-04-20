@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x1903030B4FDDF9A0 (andystewart@comcast.net)
 #
 Name     : xlog
-Version  : 2.0.17
-Release  : 8
-URL      : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.17.tar.gz
-Source0  : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.17.tar.gz
-Source1 : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.17.tar.gz.sig
+Version  : 2.0.19
+Release  : 9
+URL      : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.19.tar.gz
+Source0  : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.19.tar.gz
+Source1  : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.19.tar.gz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-3.0
@@ -24,7 +24,6 @@ BuildRequires : perl(XML::Parser)
 BuildRequires : pkgconfig(glib-2.0)
 BuildRequires : pkgconfig(gtk+-2.0)
 BuildRequires : pkgconfig(hamlib)
-BuildRequires : shared-mime-info
 
 %description
 - REQUIREMENTS -
@@ -84,18 +83,19 @@ man components for the xlog package.
 
 
 %prep
-%setup -q -n xlog-2.0.17
+%setup -q -n xlog-2.0.19
+cd %{_builddir}/xlog-2.0.19
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1568142586
+export SOURCE_DATE_EPOCH=1587413288
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 %configure --disable-static
 make  %{?_smp_mflags}
@@ -108,12 +108,12 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1568142586
+export SOURCE_DATE_EPOCH=1587413288
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xlog
-cp COPYING %{buildroot}/usr/share/package-licenses/xlog/COPYING
-cp data/doc/manual/license.dox %{buildroot}/usr/share/package-licenses/xlog/data_doc_manual_license.dox
-cp data/doc/manual/output/html/license.html %{buildroot}/usr/share/package-licenses/xlog/data_doc_manual_output_html_license.html
+cp %{_builddir}/xlog-2.0.19/COPYING %{buildroot}/usr/share/package-licenses/xlog/a6adc13d0c809ab8cb68e6e3b6eb7571bd0e2920
+cp %{_builddir}/xlog-2.0.19/data/doc/manual/license.dox %{buildroot}/usr/share/package-licenses/xlog/b38b0c6cc916b2162c027d074710f8dfb1411711
+cp %{_builddir}/xlog-2.0.19/data/doc/manual/output/html/license.html %{buildroot}/usr/share/package-licenses/xlog/b2eeff27106b7c09693886cfa0aa14980c04ed47
 %make_install
 %find_lang xlog
 ## Remove excluded files
@@ -506,9 +506,9 @@ rm -f %{buildroot}/usr/share/applications/mimeinfo.cache
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/xlog/COPYING
-/usr/share/package-licenses/xlog/data_doc_manual_license.dox
-/usr/share/package-licenses/xlog/data_doc_manual_output_html_license.html
+/usr/share/package-licenses/xlog/a6adc13d0c809ab8cb68e6e3b6eb7571bd0e2920
+/usr/share/package-licenses/xlog/b2eeff27106b7c09693886cfa0aa14980c04ed47
+/usr/share/package-licenses/xlog/b38b0c6cc916b2162c027d074710f8dfb1411711
 
 %files man
 %defattr(0644,root,root,0755)
