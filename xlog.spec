@@ -6,7 +6,7 @@
 #
 Name     : xlog
 Version  : 2.0.19
-Release  : 10
+Release  : 11
 URL      : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.19.tar.gz
 Source0  : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.19.tar.gz
 Source1  : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.19.tar.gz.sig
