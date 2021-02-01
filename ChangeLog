@@ -1,4 +1,15 @@
-
+- Changes for xlog version 2.0.20 - 2021-jan-30
+  * Updated cty.dat 20210127 (cty-3102)
+  * Added FST4 support and 5m/8m bands for ADIF 3.1.1
+  * Added /dev/ttyUSB0 and /dev/ttyUSB1 to the hamlib device menu
+  * Logeditor can hide TX(RST) and RX (RST) (useful for VHF contests)
+  * ADIF exports Distance and Azimuth correctly if enabled in Logeditor
+  * Imports ADIF from wsjt-x on UDP port 2333
+  * Fixed use-after-free error discovered by Chris K2CR and valgrind
+  * Fixed hash-table != null assert in dxcc.c
+  * Fixed GLib-GObject-WARNING in log.c
+  * Compiles cleanly with hamlib4 on ubuntu 18.04 and 20.04
+  
 - Changes for xlog version 2.0.19 - 2020-apr-19
   * Updated cty.dat 20200418 (cty-3007)
 
