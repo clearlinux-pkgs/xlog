@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x1903030B4FDDF9A0 (andystewart@comcast.net)
 #
 Name     : xlog
-Version  : 2.0.20
-Release  : 12
-URL      : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.20.tar.gz
-Source0  : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.20.tar.gz
-Source1  : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.20.tar.gz.sig
+Version  : 2.0.21
+Release  : 13
+URL      : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.21.tar.gz
+Source0  : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.21.tar.gz
+Source1  : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.21.tar.gz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-3.0
@@ -83,15 +83,15 @@ man components for the xlog package.
 
 
 %prep
-%setup -q -n xlog-2.0.20
-cd %{_builddir}/xlog-2.0.20
+%setup -q -n xlog-2.0.21
+cd %{_builddir}/xlog-2.0.21
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1612216343
+export SOURCE_DATE_EPOCH=1614012144
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -108,12 +108,12 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1612216343
+export SOURCE_DATE_EPOCH=1614012144
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xlog
-cp %{_builddir}/xlog-2.0.20/COPYING %{buildroot}/usr/share/package-licenses/xlog/a6adc13d0c809ab8cb68e6e3b6eb7571bd0e2920
-cp %{_builddir}/xlog-2.0.20/data/doc/manual/license.dox %{buildroot}/usr/share/package-licenses/xlog/b38b0c6cc916b2162c027d074710f8dfb1411711
-cp %{_builddir}/xlog-2.0.20/data/doc/manual/output/html/license.html %{buildroot}/usr/share/package-licenses/xlog/b2eeff27106b7c09693886cfa0aa14980c04ed47
+cp %{_builddir}/xlog-2.0.21/COPYING %{buildroot}/usr/share/package-licenses/xlog/a6adc13d0c809ab8cb68e6e3b6eb7571bd0e2920
+cp %{_builddir}/xlog-2.0.21/data/doc/manual/license.dox %{buildroot}/usr/share/package-licenses/xlog/b38b0c6cc916b2162c027d074710f8dfb1411711
+cp %{_builddir}/xlog-2.0.21/data/doc/manual/output/html/license.html %{buildroot}/usr/share/package-licenses/xlog/b2eeff27106b7c09693886cfa0aa14980c04ed47
 %make_install
 %find_lang xlog
 ## Remove excluded files

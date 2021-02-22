@@ -1,3 +1,12 @@
+- Changes for xlog version 2.0.21 - 2021-feb-18
+  * Modified get_smeter and get_powerlevel to use default values
+    (S9 and UNKNOWN) if hamlib cannot get values from the radio
+    (e.g. quisk).
+  * Be sure to use at least hamlib4.1 to avoid a crash that occurs
+    when using the "Select a Radio" GUI more than once.
+  * Modified configure.ac to check if compiler can support -W parameters
+  * Updated cty.dat 20210218 (cty-3104)
+
 - Changes for xlog version 2.0.20 - 2021-jan-30
   * Updated cty.dat 20210127 (cty-3102)
   * Added FST4 support and 5m/8m bands for ADIF 3.1.1
@@ -9,19 +18,19 @@
   * Fixed hash-table != null assert in dxcc.c
   * Fixed GLib-GObject-WARNING in log.c
   * Compiles cleanly with hamlib4 on ubuntu 18.04 and 20.04
-  
+
 - Changes for xlog version 2.0.19 - 2020-apr-19
   * Updated cty.dat 20200418 (cty-3007)
 
 - Changes for xlog version 2.0.18 - 2019-jun-11
   * added FT4 support and updated to ADIF 3.1.0
   * Updated cty.dat 20190608
-  
+
 - Changes for xlog version 2.0.17 - 2019-jan-14
   * Suppress GCC warning "stringop-truncation" in editest.c
     which occurs with GCC >= 8.1.
   * Updated cty.dat 20190114
-  
+
 - Changes for xlog version 2.0.16 - 2019-jan-13
   * added JS8 support and updated to ADIF 3.0.9
   * Updated cty.dat 20181210
