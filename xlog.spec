@@ -7,9 +7,9 @@
 Name     : xlog
 Version  : 2.0.22
 Release  : 14
-URL      : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.22.tar.gz
-Source0  : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.22.tar.gz
-Source1  : http://download.savannah.nongnu.org/releases/xlog/xlog-2.0.22.tar.gz.sig
+URL      : https://download.savannah.nongnu.org/releases/xlog/xlog-2.0.22.tar.gz
+Source0  : https://download.savannah.nongnu.org/releases/xlog/xlog-2.0.22.tar.gz
+Source1  : https://download.savannah.nongnu.org/releases/xlog/xlog-2.0.22.tar.gz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-3.0
